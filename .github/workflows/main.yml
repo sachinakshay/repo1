@@ -1,0 +1,17 @@
+name: Apply
+
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read
+
+on:
+  push:
+
+jobs:  
+  s3-bucket-push:
+    name: Github actions job to push to s3
+    uses: sachinakshay/make-file-poc/.github/workflows/main.yml@main
+    with:
+      BUCKET_NAME: test-iqindia
+      AWS_REGION: "us-east-1"  
+      
